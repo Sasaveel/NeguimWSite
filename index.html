@@ -1,0 +1,1019 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neguim Estética Automotiva | Vitrificação, Polimento e Detalhamento</title>
+    <meta name="description" content="Neguim Estética Automotiva especializada em vitrificação, polimento, lavagem detalhada, proteção e cuidados automotivos de alto padrão.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            black: '#070708',
+                            dark: '#0e0e11',
+                            card: '#141418',
+                            red: '#e50914',
+                            redGlow: '#ff1e27',
+                            silver: '#94a3b8',
+                            metallic: '#cbd5e1'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Montserrat', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'red-glow': '0 0 25px rgba(229, 9, 20, 0.4)',
+                        'red-glow-lg': '0 0 50px rgba(255, 30, 39, 0.5)',
+                        'card-glow': '0 10px 30px -10px rgba(0, 0, 0, 0.8)'
+                    },
+                    backgroundImage: {
+                        'radial-glow': 'radial-gradient(circle at center, rgba(229, 9, 20, 0.15) 0%, transparent 70%)',
+                        'metallic-gradient': 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.02) 100%)'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Custom Styles & Visual FX */
+        body {
+            background-color: #070708;
+            color: #f1f5f9;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-panel {
+            background: rgba(20, 20, 24, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-panel-red {
+            background: linear-gradient(145deg, rgba(229, 9, 20, 0.12) 0%, rgba(14, 14, 17, 0.9) 100%);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(229, 9, 20, 0.3);
+        }
+
+        /* Ambient Scanner Glow */
+        .scan-line {
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 30, 39, 0.25), transparent);
+            transform: skewX(-25deg);
+            animation: scanAnim 6s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes scanAnim {
+            0% { left: -100%; }
+            50% { left: 200%; }
+            100% { left: 200%; }
+        }
+
+        /* Shimmer text effect */
+        .shimmer-text {
+            background: linear-gradient(90deg, #ffffff 0%, #ff1e27 50%, #ffffff 100%);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            animation: shimmer 4s linear infinite;
+        }
+
+        @keyframes shimmer {
+            to { background-position: 200% center; }
+        }
+
+        /* Pulsing Glow Animation */
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 15px rgba(229, 9, 20, 0.4); }
+            50% { box-shadow: 0 0 35px rgba(255, 30, 39, 0.8); }
+        }
+
+        .btn-pulse-red {
+            animation: pulseGlow 2.5s infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070708;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e1e24;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #e50914;
+        }
+
+        /* Draggable Before/After Slider */
+        .slider-container {
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+        }
+
+        .before-img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        /* Hotspot Ripple */
+        .hotspot-pulse {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgba(229, 9, 20, 0.8);
+            box-shadow: 0 0 0 rgba(229, 9, 20, 0.4);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.8); }
+            70% { box-shadow: 0 0 0 15px rgba(229, 9, 20, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(229, 9, 20, 0); }
+        }
+    </style>
+</head>
+<body class="bg-brand-black text-slate-100 antialiased selection:bg-brand-red selection:text-white">
+
+    <!-- HEADER & NAVIGATION -->
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-brand-black/90 backdrop-blur-md border-b border-white/5" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <a href="#inicio" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-brand-red to-black flex items-center justify-center border border-brand-red/50 shadow-red-glow">
+                    <i class="fa-solid fa-car-side text-white text-lg group-hover:scale-110 transition-transform"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-display font-black text-xl tracking-wider text-white uppercase flex items-center gap-1">
+                        NEGU<span class="text-brand-red italic">i</span>M
+                    </span>
+                    <span class="text-[9px] tracking-[0.25em] text-slate-400 font-semibold uppercase -mt-1">
+                        ESTÉTICA AUTOMOTIVA
+                    </span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-wider text-slate-300">
+                <a href="#inicio" class="hover:text-brand-red transition-colors py-2">INÍCIO</a>
+                <a href="#servicos" class="hover:text-brand-red transition-colors py-2">SERVIÇOS</a>
+                <a href="#promocao-vitrificacao" class="text-brand-red font-bold flex items-center gap-1 hover:text-white transition-colors py-2">
+                    <i class="fa-solid fa-fire animate-pulse text-xs"></i> VITRIFICAÇÃO
+                </a>
+                <a href="#sobre" class="hover:text-brand-red transition-colors py-2">SOBRE</a>
+                <a href="#contato" class="hover:text-brand-red transition-colors py-2">CONTATO</a>
+            </nav>
+
+            <!-- CTA Header Button -->
+            <div class="hidden md:flex items-center">
+                <a href="https://wa.me/5567992403033?text=Olá,%20quero%20fazer%20meu%20orçamento" target="_blank" rel="noopener noreferrer" 
+                   class="px-5 py-2.5 rounded-full bg-brand-red hover:bg-red-600 text-white font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-red-glow flex items-center gap-2 hover:scale-105 active:scale-95">
+                    <i class="fa-brands fa-whatsapp text-sm"></i> FALE CONOSCO
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-slate-200 hover:text-brand-red p-2 focus:outline-none" aria-label="Abrir Menu">
+                <i class="fa-solid fa-bars-staggered text-2xl"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobileMenu" class="hidden md:hidden bg-brand-dark/95 border-b border-brand-red/30 px-4 pt-4 pb-6 space-y-3 backdrop-blur-xl">
+            <a href="#inicio" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-brand-red/20 hover:text-white">INÍCIO</a>
+            <a href="#servicos" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-brand-red/20 hover:text-white">SERVIÇOS</a>
+            <a href="#promocao-vitrificacao" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-brand-red font-bold hover:bg-brand-red/20">🔥 VITRIFICAÇÃO (MEGA PROMO)</a>
+            <a href="#sobre" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-brand-red/20 hover:text-white">SOBRE</a>
+            <a href="#contato" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-brand-red/20 hover:text-white">CONTATO</a>
+            <div class="pt-2">
+                <a href="https://wa.me/5567992403033?text=Olá,%20quero%20fazer%20meu%20orçamento" target="_blank" rel="noopener noreferrer" 
+                   class="w-full text-center px-4 py-3 rounded-xl bg-brand-red text-white font-bold text-sm tracking-wider uppercase shadow-red-glow flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> FALE CONOSCO NO WHATSAPP
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="inicio" class="relative min-h-screen pt-24 pb-16 flex items-center justify-center overflow-hidden bg-gradient-to-b from-brand-black via-brand-dark to-brand-black">
+        
+        <!-- Background Dark Studio Image with Parallax & Light Scan Effect -->
+        <div class="absolute inset-0 z-0 opacity-45 pointer-events-none">
+            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=2000&q=85" 
+                 alt="Carro preto super detalhado" 
+                 class="w-full h-full object-cover object-center transform scale-105 transition-transform duration-1000" id="heroCarImg">
+            <div class="absolute inset-0 bg-gradient-to-t from-brand-black via-brand-black/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand-black via-transparent to-brand-black"></div>
+        </div>
+
+        <!-- Light Sweep Anim over Hero -->
+        <div class="scan-line z-10"></div>
+
+        <!-- Hero Content Container -->
+        <div class="relative z-20 max-w-5xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
+            
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-red/10 border border-brand-red/40 mb-6 backdrop-blur-md shadow-red-glow">
+                <span class="w-2 h-2 rounded-full bg-brand-red animate-ping"></span>
+                <span class="text-xs sm:text-sm font-bold uppercase tracking-widest text-white">
+                    ESPECIALISTAS EM VITRIFICAÇÃO AUTOMOTIVA
+                </span>
+            </div>
+
+            <!-- Main Headline -->
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-white mb-6 leading-none">
+                SEU CARRO MERECE <br>
+                <span class="shimmer-text">MAIS QUE UMA LAVAGEM.</span>
+            </h1>
+
+            <!-- Subheadline -->
+            <p class="text-lg sm:text-xl text-slate-300 max-w-3xl mb-10 font-normal leading-relaxed">
+                Estética automotiva especializada em acabamento, correção, proteção e valorização do seu veículo.
+            </p>
+
+            <!-- Hero Action Buttons -->
+            <div class="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto">
+                <a href="#servicos" 
+                   class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm tracking-wider uppercase border border-white/20 transition-all duration-300 backdrop-blur-md hover:border-white/40">
+                    CONHEÇA NOSSOS SERVIÇOS
+                </a>
+                <a href="https://wa.me/5567992403033?text=Olá,%20quero%20fazer%20meu%20orçamento" target="_blank" rel="noopener noreferrer" 
+                   class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-red hover:bg-red-600 text-white font-bold text-sm tracking-wider uppercase transition-all duration-300 shadow-red-glow btn-pulse-red flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> FAZER MEU ORÇAMENTO
+                </a>
+            </div>
+
+            <!-- Quick Trust Highlights -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-8 border-t border-white/10 pt-8 w-full">
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-shield-halved text-brand-red text-2xl mb-2"></i>
+                    <span class="text-xs uppercase font-bold tracking-wider text-slate-200">Proteção de Pintura</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-gem text-brand-red text-2xl mb-2"></i>
+                    <span class="text-xs uppercase font-bold tracking-wider text-slate-200">Brilho Espelhado</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-droplet text-brand-red text-2xl mb-2"></i>
+                    <span class="text-xs uppercase font-bold tracking-wider text-slate-200">Hidro Repelência</span>
+                </div>
+                <div class="flex flex-col items-center">
+                    <i class="fa-solid fa-wand-magic-sparkles text-brand-red text-2xl mb-2"></i>
+                    <span class="text-xs uppercase font-bold tracking-wider text-slate-200">Acabamento Premium</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Scroll Indicator -->
+        <a href="#promocao-vitrificacao" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 z-20 text-slate-400 hover:text-brand-red transition-colors animate-bounce">
+            <i class="fa-solid fa-chevron-down text-xl"></i>
+        </a>
+    </section>
+
+    <!-- 🔥 MEGA PROMOÇÃO SECTION — VITRIFICAÇÃO DA PINTURA -->
+    <section id="promocao-vitrificacao" class="py-20 relative overflow-hidden bg-brand-black border-y border-brand-red/20">
+        
+        <!-- Ambient Red Radial Glow Background -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-red/15 rounded-full blur-[120px] pointer-events-none"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 relative z-10">
+            
+            <!-- Section Header -->
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-brand-red/20 border border-brand-red text-brand-red text-xs font-black uppercase tracking-widest mb-3">
+                    <i class="fa-solid fa-fire text-brand-red animate-pulse"></i> OPORTUNIDADE EXCLUSIVA
+                </div>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white mb-4">
+                    🔥 MEGA PROMOÇÃO DE VITRIFICAÇÃO 🔥
+                </h2>
+                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto">
+                    Proteção, brilho e acabamento premium para a pintura do seu veículo.
+                </p>
+            </div>
+
+            <!-- GIANT PROMOTIONAL CARD -->
+            <div class="glass-panel-red rounded-3xl p-6 sm:p-10 border-2 border-brand-red/50 shadow-red-glow-lg relative overflow-hidden">
+                
+                <!-- Corner Badges -->
+                <div class="flex flex-wrap items-center justify-between gap-3 mb-8 border-b border-brand-red/30 pb-6">
+                    <span class="bg-brand-red text-white text-xs sm:text-sm font-black uppercase tracking-widest px-4 py-1.5 rounded-full shadow-md flex items-center gap-2">
+                        <i class="fa-solid fa-star"></i> CONDIÇÃO PROMOCIONAL
+                    </span>
+                    <span class="bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 text-xs sm:text-sm font-black uppercase tracking-widest px-4 py-1.5 rounded-full flex items-center gap-2">
+                        <i class="fa-solid fa-piggy-bank"></i> ECONOMIZE R$ 1.000,00
+                    </span>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Offer Details & Price -->
+                    <div class="lg:col-span-7 space-y-6">
+                        <h3 class="text-2xl sm:text-4xl font-black uppercase text-white tracking-wide">
+                            VITRIFICAÇÃO DA PINTURA
+                        </h3>
+
+                        <!-- PRICING DISPLAY -->
+                        <div class="p-6 rounded-2xl bg-black/60 border border-brand-red/40 flex flex-col sm:flex-row items-baseline gap-4 sm:gap-6">
+                            <div>
+                                <span class="text-xs uppercase font-bold text-slate-400 block mb-1">PREÇO ORIGINAL:</span>
+                                <span class="text-2xl sm:text-3xl font-bold text-slate-400 line-through opacity-75">R$ 3.000,00</span>
+                            </div>
+                            <div class="sm:border-l sm:border-slate-700 sm:pl-6">
+                                <span class="text-xs uppercase font-black text-brand-red block mb-1">POR APENAS:</span>
+                                <span class="text-4xl sm:text-6xl font-black text-white tracking-tight drop-shadow-[0_2px_10px_rgba(229,9,20,0.8)]">
+                                    R$ 2.000,00
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Included Benefits Grid -->
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                                <span class="text-xl">🛡️</span>
+                                <span class="text-xs font-bold uppercase tracking-wide text-slate-200">PROTEÇÃO DA PINTURA</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                                <span class="text-xl">✨</span>
+                                <span class="text-xs font-bold uppercase tracking-wide text-slate-200">MAIS BRILHO E PROFUNDIDADE</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                                <span class="text-xl">💧</span>
+                                <span class="text-xs font-bold uppercase tracking-wide text-slate-200">HIDRO REPELÊNCIA</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 rounded-xl bg-white/5 border border-white/10">
+                                <span class="text-xl">🛡️</span>
+                                <span class="text-xs font-bold uppercase tracking-wide text-slate-200">PROTEÇÃO CONTRA SUJEIRAS E AGENTES EXTERNOS</span>
+                            </div>
+                        </div>
+
+                        <!-- Explanation Text -->
+                        <p class="text-sm text-slate-300 leading-relaxed italic border-l-2 border-brand-red pl-4 py-1">
+                            “A vitrificação é um tratamento de proteção da pintura desenvolvido para proporcionar acabamento sofisticado, brilho intenso e maior resistência da superfície aos agentes externos do uso cotidiano.”
+                        </p>
+
+                        <!-- CTA Promo Button -->
+                        <div class="pt-4 flex flex-col sm:flex-row gap-4">
+                            <a href="https://wa.me/5567992403033?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20a%20promoção%20de%20Vitrificação%20da%20Pintura." 
+                               target="_blank" rel="noopener noreferrer"
+                               class="flex-1 py-4 px-6 rounded-xl bg-brand-red hover:bg-red-600 text-white font-black text-sm uppercase tracking-wider text-center transition-all duration-300 shadow-red-glow btn-pulse-red flex items-center justify-center gap-2">
+                                <i class="fa-brands fa-whatsapp text-xl"></i> QUERO APROVEITAR A PROMOÇÃO
+                            </a>
+                            <a href="https://wa.me/5567992403033?text=Olá,%20quero%20fazer%20meu%20orçamento" target="_blank" rel="noopener noreferrer"
+                               class="py-4 px-6 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm uppercase tracking-wider text-center border border-white/20 transition-all flex items-center justify-center gap-2">
+                                CONVERSE COM O NEGUIM ESTÉTICA AUTOMOTIVA
+                            </a>
+                        </div>
+
+                    </div>
+
+                    <!-- Visual Representation Image -->
+                    <div class="lg:col-span-5 relative">
+                        <div class="relative rounded-2xl overflow-hidden border border-brand-red/40 shadow-2xl group">
+                            <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1000&q=85" 
+                                 alt="Vitrificação de pintura com brilho molhado e gotas de água" 
+                                 class="w-full h-80 lg:h-96 object-cover transform group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+                            
+                            <!-- Floating Tag -->
+                            <div class="absolute bottom-4 left-4 right-4 p-3 rounded-xl bg-black/80 backdrop-blur-md border border-white/10 text-center">
+                                <span class="text-xs font-bold uppercase text-brand-red tracking-widest block">RESULTADO VISUAL SUPREMO</span>
+                                <span class="text-xs text-slate-300">Brilho vitrificado com hidrofobia impecável</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INTERACTIVE VITRIFICATION HYDROPHOBIC EFFECT SIMULATION -->
+    <section class="py-16 bg-brand-dark border-b border-white/5 relative">
+        <div class="max-w-5xl mx-auto px-4 text-center">
+            <h3 class="text-2xl sm:text-3xl font-black uppercase text-white mb-2">
+                EFEITO DE HIDRO REPELÊNCIA NA PRÁTICA
+            </h3>
+            <p class="text-slate-400 text-sm mb-8">
+                Veja a repelência à água proporcionada pela proteção vitrificada na pintura.
+            </p>
+
+            <div class="relative rounded-2xl overflow-hidden border border-white/10 bg-black p-4 md:p-8 flex flex-col md:flex-row items-center justify-between gap-8">
+                
+                <!-- Unprotected Side -->
+                <div class="flex-1 text-center p-6 rounded-xl bg-slate-900/80 border border-slate-800 w-full">
+                    <span class="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-2">PINTURA SEM PROTEÇÃO</span>
+                    <div class="h-32 rounded-lg bg-gradient-to-br from-slate-800 to-slate-900 flex items-center justify-center relative overflow-hidden">
+                        <!-- Accumulated dirty water layer visualization -->
+                        <div class="absolute inset-0 bg-amber-900/20"></div>
+                        <span class="text-xs text-slate-400 px-4">Água acumulada, manchas de sujeira e oxidação na verniz</span>
+                    </div>
+                </div>
+
+                <div class="text-brand-red font-black text-2xl">VS</div>
+
+                <!-- Protected Side -->
+                <div class="flex-1 text-center p-6 rounded-xl bg-brand-red/10 border border-brand-red/40 w-full shadow-red-glow">
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-red block mb-2">PINTURA PROTEGIDA</span>
+                    <div class="h-32 rounded-lg bg-gradient-to-br from-black to-zinc-900 flex items-center justify-center relative overflow-hidden border border-brand-red/30">
+                        <!-- Animated Hydrophobic Beading drops -->
+                        <div class="flex gap-4">
+                            <div class="w-4 h-4 rounded-full bg-cyan-300/80 shadow-[0_0_10px_#06b6d4] animate-bounce"></div>
+                            <div class="w-5 h-5 rounded-full bg-cyan-300/90 shadow-[0_0_12px_#06b6d4] animate-bounce [animation-delay:0.2s]"></div>
+                            <div class="w-3 h-3 rounded-full bg-cyan-300/80 shadow-[0_0_8px_#06b6d4] animate-bounce [animation-delay:0.4s]"></div>
+                        </div>
+                        <span class="absolute bottom-2 text-[10px] text-cyan-300 font-semibold tracking-wider">EFEITO GOTAS PERFEITAS (BEADING)</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- NOSSOS SERVIÇOS SECTION -->
+    <section id="servicos" class="py-24 bg-brand-black relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            
+            <!-- Section Title -->
+            <div class="text-center mb-16">
+                <span class="text-brand-red font-black text-xs uppercase tracking-widest block mb-2">CATÁLOGO EXCLUSIVO</span>
+                <h2 class="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight">
+                    NOSSOS SERVIÇOS
+                </h2>
+                <div class="w-20 h-1 bg-brand-red mx-auto my-4 rounded-full"></div>
+                <p class="text-slate-400 text-base max-w-xl mx-auto">
+                    Cuidado profissional em cada detalhe do seu veículo.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- 1. POLIMENTO COMERCIAL -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 hover:border-brand-red/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1520340356584-f9917d1eea6f?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Polimento Comercial" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+                            <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-brand-red font-black text-sm border border-brand-red/30">
+                                R$ 950,00
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3 text-brand-red">
+                                <i class="fa-solid fa-gem text-lg"></i>
+                                <h3 class="text-xl font-black uppercase text-white">POLIMENTO COMERCIAL</h3>
+                            </div>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                                Tratamento desenvolvido para melhorar o acabamento visual da pintura, realçar o brilho e remover marcas e pequenas imperfeições.
+                            </p>
+                            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Lavagem técnica do veículo</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Descontaminação da pintura</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Polimento comercial</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Remoção de marcas e pequenas imperfeições</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Acabamento e brilho da pintura</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Proteção final</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://wa.me/5567992403033?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20o%20serviço%20de%20Polimento%20Comercial." target="_blank" rel="noopener noreferrer"
+                           class="w-full py-3 rounded-xl bg-white/5 hover:bg-brand-red text-white font-bold text-xs uppercase tracking-wider text-center border border-white/10 hover:border-brand-red transition-all block">
+                            QUERO ORÇAMENTO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. POLIMENTO TÉCNICO -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 hover:border-brand-red/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Polimento Técnico" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+                            <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-brand-red font-black text-sm border border-brand-red/30">
+                                R$ 1.900,00
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3 text-brand-red">
+                                <i class="fa-solid fa-wand-magic-sparkles text-lg"></i>
+                                <h3 class="text-xl font-black uppercase text-white">POLIMENTO TÉCNICO</h3>
+                            </div>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                                Processo técnico de correção e acabamento da pintura, realizado em etapas para recuperar brilho, profundidade e qualidade visual.
+                            </p>
+                            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Lavagem técnica</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Descontaminação da pintura</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Avaliação técnica da pintura</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Polimento em etapas</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Correção de marcas e riscos superficiais</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Refino e acabamento</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Realce de brilho e profundidade</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Proteção final</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://wa.me/5567992403033?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20o%20serviço%20de%20Polimento%20Técnico." target="_blank" rel="noopener noreferrer"
+                           class="w-full py-3 rounded-xl bg-white/5 hover:bg-brand-red text-white font-bold text-xs uppercase tracking-wider text-center border border-white/10 hover:border-brand-red transition-all block">
+                            QUERO ORÇAMENTO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. LAVAGEM DETALHADA -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 hover:border-brand-red/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1507136566006-cfc505b114fc?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Lavagem Detalhada" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+                            <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-brand-red font-black text-sm border border-brand-red/30">
+                                R$ 550,00
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3 text-brand-red">
+                                <i class="fa-solid fa-shower text-lg"></i>
+                                <h3 class="text-xl font-black uppercase text-white">LAVAGEM DETALHADA</h3>
+                            </div>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                                Limpeza minuciosa do veículo, com atenção aos detalhes internos e externos.
+                            </p>
+                            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Lavagem externa detalhada</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Limpeza detalhada das rodas e pneus</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Limpeza de caixas de roda</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Limpeza de vidros</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Limpeza e detalhamento interno</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Higienização de painéis e acabamentos</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Limpeza de cantos e áreas de difícil acesso</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Finalização e proteção dos acabamentos</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://wa.me/5567992403033?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20o%20serviço%20de%20Lavagem%20Detalhada." target="_blank" rel="noopener noreferrer"
+                           class="w-full py-3 rounded-xl bg-white/5 hover:bg-brand-red text-white font-bold text-xs uppercase tracking-wider text-center border border-white/10 hover:border-brand-red transition-all block">
+                            QUERO ORÇAMENTO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. LAVAGEM DETALHADA DE MOTO -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 hover:border-brand-red/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Lavagem Detalhada de Moto" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+                            <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-brand-red font-black text-sm border border-brand-red/30">
+                                R$ 250,00
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3 text-brand-red">
+                                <i class="fa-solid fa-motorcycle text-lg"></i>
+                                <h3 class="text-xl font-black uppercase text-white">LAVAGEM DETALHADA DE MOTO</h3>
+                            </div>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                                Tratamento técnico e minucioso para motocicletas de alta cilindrada e esportivas.
+                            </p>
+                            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Lavagem detalhada e cuidadosa</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Limpeza de rodas e componentes</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Limpeza de partes externas e acabamentos</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Remoção de sujeiras impregnadas</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Secagem detalhada</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Acabamento final para realçar o visual da moto</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://wa.me/5567992403033?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20o%20serviço%20de%20Lavagem%20Detalhada%20de%20Moto." target="_blank" rel="noopener noreferrer"
+                           class="w-full py-3 rounded-xl bg-white/5 hover:bg-brand-red text-white font-bold text-xs uppercase tracking-wider text-center border border-white/10 hover:border-brand-red transition-all block">
+                            QUERO ORÇAMENTO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 5. LAVAGEM DE CHASSI -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 hover:border-brand-red/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Lavagem de Chassi" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+                            <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-brand-red font-black text-sm border border-brand-red/30">
+                                R$ 180,00
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3 text-brand-red">
+                                <i class="fa-solid fa-truck-monster text-lg"></i>
+                                <h3 class="text-xl font-black uppercase text-white">LAVAGEM DE CHASSI</h3>
+                            </div>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                                Limpeza técnica da parte inferior do veículo com desengraxamento e remoção de incrustações.
+                            </p>
+                            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Lavagem detalhada do chassi</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Remoção de barro, poeira e sujeiras acumuladas</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Limpeza das áreas de difícil acesso</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Enxágue de alta pressão</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Acabamento final protetivo</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://wa.me/5567992403033?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20o%20serviço%20de%20Lavagem%20de%20Chassi." target="_blank" rel="noopener noreferrer"
+                           class="w-full py-3 rounded-xl bg-white/5 hover:bg-brand-red text-white font-bold text-xs uppercase tracking-wider text-center border border-white/10 hover:border-brand-red transition-all block">
+                            QUERO ORÇAMENTO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 6. LIMPEZA DE BANCO DE COURO -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 hover:border-brand-red/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Limpeza de Banco de Couro" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+                            <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-brand-red font-black text-sm border border-brand-red/30">
+                                R$ 430,00
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3 text-brand-red">
+                                <i class="fa-solid fa-chair text-lg"></i>
+                                <h3 class="text-xl font-black uppercase text-white">LIMPEZA DE BANCO DE COURO</h3>
+                            </div>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                                Limpeza cuidadosa para remoção de sujeiras e resíduos, preservando a aparência e o acabamento do couro.
+                            </p>
+                            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Higienização profunda do couro</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Remoção de sujeiras e resíduos encrostados</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Preservação do acabamento original</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Toque macio e renovado</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://wa.me/5567992403033?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20o%20serviço%20de%20Limpeza%20de%20Banco%20de%20Couro." target="_blank" rel="noopener noreferrer"
+                           class="w-full py-3 rounded-xl bg-white/5 hover:bg-brand-red text-white font-bold text-xs uppercase tracking-wider text-center border border-white/10 hover:border-brand-red transition-all block">
+                            QUERO ORÇAMENTO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 7. VITRIFICAÇÃO DE PLÁSTICOS -->
+                <div class="glass-panel rounded-2xl overflow-hidden border border-white/10 hover:border-brand-red/50 transition-all duration-300 group hover:-translate-y-2 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1542282088-72c9c27ed0cd?auto=format&fit=crop&w=800&q=80" 
+                                 alt="Vitrificação de Plásticos" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-brand-card via-transparent to-transparent"></div>
+                            <span class="absolute top-4 right-4 bg-black/80 backdrop-blur-md px-3 py-1 rounded-full text-brand-red font-black text-sm border border-brand-red/30">
+                                R$ 650,00
+                            </span>
+                        </div>
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-3 text-brand-red">
+                                <i class="fa-solid fa-shield-cat text-lg"></i>
+                                <h3 class="text-xl font-black uppercase text-white">VITRIFICAÇÃO DE PLÁSTICOS</h3>
+                            </div>
+                            <p class="text-slate-300 text-xs leading-relaxed mb-4">
+                                Revitalização e revestimento vitrificado para plásticos externos ressecados.
+                            </p>
+                            <ul class="space-y-2 text-xs text-slate-300 mb-6">
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Revitalização e proteção dos plásticos</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Proteção contra agentes externos e UV</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Efeito de hidro repelência</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Acabamento renovado com tom original</li>
+                                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-red text-xs"></i> Maior durabilidade do acabamento</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="px-6 pb-6">
+                        <a href="https://wa.me/5567992403033?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20o%20serviço%20de%20Vitrificação%20de%20Plásticos." target="_blank" rel="noopener noreferrer"
+                           class="w-full py-3 rounded-xl bg-white/5 hover:bg-brand-red text-white font-bold text-xs uppercase tracking-wider text-center border border-white/10 hover:border-brand-red transition-all block">
+                            QUERO ORÇAMENTO
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 8. VITRIFICAÇÃO DA PINTURA (PROMO CARD HIGHLIGHT) -->
+                <div class="glass-panel-red rounded-2xl overflow-hidden border-2 border-brand-red shadow-red-glow transition-all duration-300 group hover:-translate-y-2 flex flex-col justify-between md:col-span-2 lg:col-span-2">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=1200&q=80" 
+                                 alt="Vitrificação da Pintura Promoção" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+                            
+                            <span class="absolute top-4 left-4 bg-brand-red text-white font-black text-xs uppercase tracking-widest px-3 py-1 rounded-full animate-pulse flex items-center gap-1">
+                                🔥 PROMOÇÃO DESTAQUE
+                            </span>
+
+                            <div class="absolute bottom-4 right-4 bg-black/90 backdrop-blur-md px-4 py-2 rounded-xl border border-brand-red/50 text-right">
+                                <span class="text-xs text-slate-400 line-through block">DE R$ 3.000,00</span>
+                                <span class="text-2xl font-black text-white">POR R$ 2.000,00</span>
+                                <span class="text-[10px] text-emerald-400 font-bold block">ECONOMIA DE R$ 1.000,00</span>
+                            </div>
+                        </div>
+
+                        <div class="p-6">
+                            <div class="flex items-center gap-2 mb-2 text-brand-red">
+                                <i class="fa-solid fa-crown text-xl"></i>
+                                <h3 class="text-2xl font-black uppercase text-white">VITRIFICAÇÃO DA PINTURA</h3>
+                            </div>
+                            <p class="text-slate-200 text-xs leading-relaxed mb-4">
+                                Tratamento supremo de proteção de alta tecnologia para a pintura do seu veículo. Brilho profundo, proteção rigorosa contra intempéries e efeito repelente de água.
+                            </p>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-300 mb-4">
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-shield text-brand-red"></i> Proteção contra raios UV & sujeiras</span>
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-droplet text-brand-red"></i> Altíssima repelência a líquidos</span>
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-gem text-brand-red"></i> Brilho intenso espelhado</span>
+                                <span class="flex items-center gap-2"><i class="fa-solid fa-sparkles text-brand-red"></i> Valorização do seu patrimônio</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="px-6 pb-6">
+                        <a href="https://wa.me/5567992403033?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20a%20promoção%20de%20Vitrificação%20da%20Pintura." target="_blank" rel="noopener noreferrer"
+                           class="w-full py-4 rounded-xl bg-brand-red hover:bg-red-600 text-white font-black text-xs uppercase tracking-widest text-center shadow-red-glow transition-all block">
+                            APROVEITAR PROMOÇÃO (R$ 2.000,00)
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SEÇÃO — SERVIÇOS ADICIONAIS -->
+    <section class="py-16 bg-brand-dark border-y border-white/5 relative">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h3 class="text-2xl sm:text-4xl font-black uppercase text-white mb-4">
+                PRECISA DE OUTRO SERVIÇO?
+            </h3>
+            <p class="text-slate-300 text-sm sm:text-base mb-8 leading-relaxed max-w-2xl mx-auto">
+                Não encontrou exatamente o que procura? Converse com o Neguim Estética Automotiva e consulte outros serviços e possibilidades para o seu veículo.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/5567992403033?text=Olá,%20quero%20fazer%20meu%20orçamento" 
+                   target="_blank" rel="noopener noreferrer"
+                   class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-red hover:bg-red-600 text-white font-black text-xs uppercase tracking-wider shadow-red-glow transition-all flex items-center justify-center gap-2">
+                    <i class="fa-brands fa-whatsapp text-lg"></i> CONVERSE COM O NEGUIM ESTÉTICA AUTOMOTIVA
+                </a>
+                <a href="https://wa.me/5567992403033?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20um%20serviço%20personalizado." 
+                   target="_blank" rel="noopener noreferrer"
+                   class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider border border-white/20 transition-all">
+                    SOLICITAR SERVIÇO PERSONALIZADO
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- POR QUE ESCOLHER A NEGUIM -->
+    <section id="sobre" class="py-24 bg-brand-dark border-t border-white/5 relative">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                
+                <div>
+                    <span class="text-brand-red font-black text-xs uppercase tracking-widest block mb-2">COMPROMISSO COM O SEU VEÍCULO</span>
+                    <h2 class="text-3xl sm:text-5xl font-black uppercase text-white tracking-tight mb-6">
+                        QUALIDADE, CUIDADO E DEDICAÇÃO.
+                    </h2>
+                    <p class="text-slate-300 text-sm leading-relaxed mb-8">
+                        A Neguim Estética Automotiva se dedica a entregar tratamentos estéticos detalhados, combinando produtos de alta performance e técnicas cuidadosas para renovar e proteger o visual do seu veículo.
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-red/20 text-brand-red flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm text-slate-200 font-medium">Atendimento personalizado focado na sua necessidade</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-red/20 text-brand-red flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm text-slate-200 font-medium">Atenção extrema a cada detalhe interno e externo</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-red/20 text-brand-red flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm text-slate-200 font-medium">Processos rigorosos de limpeza e acabamento</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-red/20 text-brand-red flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm text-slate-200 font-medium">Serviços especializados de proteção e vitrificação</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-red/20 text-brand-red flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm text-slate-200 font-medium">Tratamento técnico dedicado da pintura</span>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-red/20 text-brand-red flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-check text-xs"></i>
+                            </div>
+                            <span class="text-sm text-slate-200 font-medium">Foco absoluto na qualidade e valorização do resultado</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative">
+                    <div class="rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1607860108855-64acf2078ed9?auto=format&fit=crop&w=1000&q=85" 
+                             alt="Profissional em estética automotiva" class="w-full h-auto object-cover">
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INSTAGRAM SECTION -->
+    <section class="py-16 bg-gradient-to-b from-brand-black to-brand-dark border-t border-white/5">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-tr from-amber-500 via-rose-500 to-purple-600 text-white text-3xl mb-4 shadow-lg">
+                <i class="fa-brands fa-instagram"></i>
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-black uppercase text-white mb-2">
+                ACOMPANHES NOSSOS TRABALHOS
+            </h3>
+            <p class="text-slate-400 text-sm mb-6">
+                Siga a <span class="text-white font-bold">@neguim_estetica_automotiva</span> no Instagram e veja o dia a dia e resultados reais de cada projeto.
+            </p>
+            <a href="https://instagram.com/neguim_estetica_automotiva" target="_blank" rel="noopener noreferrer" 
+               class="inline-flex items-center gap-2 px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white font-bold text-xs uppercase tracking-wider transition-all">
+                <i class="fa-brands fa-instagram text-lg"></i> SIGA A NEGUIM NO INSTAGRAM
+            </a>
+        </div>
+    </section>
+
+    <!-- CTA FINAL SECTION -->
+    <section id="contato" class="py-24 bg-brand-black relative overflow-hidden border-t border-brand-red/30">
+        
+        <div class="absolute inset-0 bg-radial-glow pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
+            <h2 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-4">
+                SEU CARRO SEMPRE NOVO.
+            </h2>
+            <p class="text-slate-300 text-base sm:text-lg mb-10 max-w-xl mx-auto">
+                Escolha o serviço ideal para o seu veículo e fale diretamente com o Neguim Estética Automotiva.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://wa.me/5567992403033?text=Olá,%20quero%20fazer%20meu%20orçamento" target="_blank" rel="noopener noreferrer"
+                   class="w-full sm:w-auto px-10 py-5 rounded-2xl bg-brand-red hover:bg-red-600 text-white font-black text-sm uppercase tracking-widest shadow-red-glow btn-pulse-red flex items-center justify-center gap-3">
+                    <i class="fa-brands fa-whatsapp text-2xl"></i> FAZER MEU ORÇAMENTO
+                </a>
+                <a href="https://wa.me/5567992403033?text=Olá,%20quero%20fazer%20meu%20orçamento" target="_blank" rel="noopener noreferrer"
+                   class="w-full sm:w-auto px-10 py-5 rounded-2xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm uppercase tracking-widest border border-white/20 flex items-center justify-center gap-3">
+                    CONVERSAR COM O NEGUIM ESTÉTICA AUTOMOTIVA
+                </a>
+            </div>
+
+            <!-- Phone Direct Display -->
+            <div class="mt-12 text-slate-400 text-sm font-semibold flex items-center justify-center gap-2">
+                <i class="fa-solid fa-phone text-brand-red"></i> WhatsApp Oficial: (67) 99240-3033
+            </div>
+        </div>
+    </section>
+
+    <!-- FLOATING WHATSAPP BUTTON -->
+    <a href="https://wa.me/5567992403033?text=Olá,%20quero%20fazer%20meu%20orçamento" target="_blank" rel="noopener noreferrer" 
+       class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white flex items-center justify-center shadow-[0_0_20px_rgba(16,185,129,0.6)] transition-all transform hover:scale-110 active:scale-95"
+       aria-label="Falar no WhatsApp">
+        <i class="fa-brands fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- FOOTER -->
+    <footer class="bg-brand-dark border-t border-white/10 py-12 text-slate-400 text-xs">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 pb-8 border-b border-white/5">
+                
+                <div>
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="font-display font-black text-lg text-white uppercase tracking-wider">
+                            NEGU<span class="text-brand-red italic">i</span>M
+                        </span>
+                        <span class="text-[8px] text-slate-400 uppercase tracking-widest font-semibold block">ESTÉTICA AUTOMOTIVA</span>
+                    </div>
+                    <p class="text-slate-400 text-xs italic">“SEU CARRO SEMPRE NOVO!”</p>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold uppercase mb-3 text-xs tracking-wider">LINKS RÁPIDOS</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="hover:text-brand-red transition-colors">Início</a></li>
+                        <li><a href="#servicos" class="hover:text-brand-red transition-colors">Serviços</a></li>
+                        <li><a href="#promocao-vitrificacao" class="hover:text-brand-red transition-colors text-brand-red font-bold">Vitrificação (Promoção)</a></li>
+                        <li><a href="#sobre" class="hover:text-brand-red transition-colors">Sobre</a></li>
+                        <li><a href="#contato" class="hover:text-brand-red transition-colors">Contato</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-bold uppercase mb-3 text-xs tracking-wider">CONTATO</h4>
+                    <p class="mb-2">
+                        <a href="https://wa.me/5567992403033?text=Olá,%20quero%20fazer%20meu%20orçamento" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">
+                            <i class="fa-brands fa-whatsapp text-emerald-400 mr-2"></i> (67) 99240-3033
+                        </a>
+                    </p>
+                    <p><i class="fa-brands fa-instagram text-rose-400 mr-2"></i> @neguim_estetica_automotiva</p>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center justify-between text-slate-500 text-[11px]">
+                <p>&copy; 2026 Neguim Estética Automotiva. Todos os direitos reservados.</p>
+                <p>Desenvolvido com padrão de alta performance.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT FOR INTERACTIVITY -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Parallax Effect on Hero Image on Scroll
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            const heroCar = document.getElementById('heroCarImg');
+            if (heroCar && scrolled < 800) {
+                heroCar.style.transform = `scale(1.05) translateY(${scrolled * 0.15}px)`;
+            }
+        });
+    </script>
+</body>
+</html>
